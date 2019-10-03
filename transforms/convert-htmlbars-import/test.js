@@ -4,5 +4,5 @@ const { runTransformTest } = require('codemod-cli');
 
 runTransformTest({
   type: 'jscodeshift',
-  name: 'main',
+  name: 'convert-htmlbars-import',
 });
