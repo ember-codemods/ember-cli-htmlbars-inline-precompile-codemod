@@ -21,12 +21,16 @@ function writeImportStatement(j, root) {
 
   // if any imports from 'htmlbars-inline-precompile' exists, remove it and replace with a new import
   if (inlinePrecompileImportStatement.length !== 0) {
-    inlinePrecompileImportStatement.remove();
+    // setting up import information
+    let namedIdentifier = inlinePrecompileImportStatement.find(j.Identifier).get(0).node.name;
+    if (namedIdentifier !== 'hbs') {
+      namedIdentifier = `hbs as ${namedIdentifier}`;
+    }
+    const identifier = j.identifier(namedIdentifier);
+    const variableId = j.importSpecifier(identifier);
 
-    // setting up 'hbs' as an identifier for import statement
-    const hbs = 'hbs';
-    const hbsAsIdentifier = j.identifier(hbs);
-    const variableId = j.importSpecifier(hbsAsIdentifier);
+    // remove imports from 'htmlbars-inline-precompile'
+    inlinePrecompileImportStatement.remove();
 
     // finding all 'ember-cli-htmlbars' import statements
     const emberCliImportStatement = root.find(j.ImportDeclaration, {
@@ -35,7 +39,7 @@ function writeImportStatement(j, root) {
       },
     });
 
-    // if no imports from 'ember-cli-htmlbars' exists, write import { hbs } from 'ember-cli-htmlbars';
+    // if no imports from 'ember-cli-htmlbars' exists, write one;
     if (emberCliImportStatement.length === 0) {
       const importStatement = j.importDeclaration([variableId], j.literal('ember-cli-htmlbars'));
       body.unshift(importStatement);
@@ -43,7 +47,7 @@ function writeImportStatement(j, root) {
     // if any imports from 'ember-cli-htmlbars' already exists, include hbs
     else {
       let existingSpecifiers = emberCliImportStatement.get('specifiers');
-      if (existingSpecifiers.filter(exSp => exSp.value.imported.name === hbs).length === 0) {
+      if (existingSpecifiers.filter(exSp => exSp.value.imported.name === 'hbs').length === 0) {
         existingSpecifiers.push(variableId);
       }
     }
