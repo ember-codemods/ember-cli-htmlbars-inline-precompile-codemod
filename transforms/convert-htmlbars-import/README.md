@@ -4,12 +4,12 @@
 ## Usage
 
 ```
-npx ember-cli-htmlbars-inline-precompile-codemod convert-htmlbars-import path/of/files/ or/some**/*glob.js
+npx ember-cli-htmlbars-inline-precompile-codemod path/of/files/ or/some**/*glob.js
 
 # or
 
 yarn global add ember-cli-htmlbars-inline-precompile-codemod
-ember-cli-htmlbars-inline-precompile-codemod convert-htmlbars-import path/of/files/ or/some**/*glob.js
+ember-cli-htmlbars-inline-precompile-codemod path/of/files/ or/some**/*
 ```
 
 ## Input / Output

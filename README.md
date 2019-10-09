@@ -10,12 +10,12 @@ A collection of codemod's for ember-cli-htmlbars-inline-precompile-codemod.
 To run a specific codemod from this project, you would run the following:
 
 ```
-npx ember-cli-htmlbars-inline-precompile-codemod <TRANSFORM NAME> path/of/files/ or/some**/*glob.js
+npx ember-cli-htmlbars-inline-precompile-codemod path/of/files/ or/some**/*glob.js
 
 # or
 
 yarn global add ember-cli-htmlbars-inline-precompile-codemod
-ember-cli-htmlbars-inline-precompile-codemod <TRANSFORM NAME> path/of/files/ or/some**/*glob.js
+ember-cli-htmlbars-inline-precompile-codemod path/of/files/ or/some**/*
 ```
 
 ## Transforms
