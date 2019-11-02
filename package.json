@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-htmlbars-inline-precompile-codemod",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Automatically codemod from usage of `import hbs from 'htmlbars-inline-precompile'` to `import { hbs } from 'ember-cli-htmlbars'`",
   "keywords": [
     "codemod-cli"
