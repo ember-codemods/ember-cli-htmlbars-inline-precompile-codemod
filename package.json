@@ -1,17 +1,20 @@
 {
   "name": "ember-cli-htmlbars-inline-precompile-codemod",
   "version": "0.1.0",
-  "scripts": {
-    "lint": "eslint --cache .",
-    "test": "codemod-cli test",
-    "test:coverage": "codemod-cli test --coverage",
-    "update-docs": "codemod-cli update-docs",
-    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
-  },
-  "bin": "./bin/cli.js",
   "keywords": [
     "codemod-cli"
   ],
+  "bin": "./bin/cli.js",
+  "scripts": {
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
+    "lint": "eslint --cache .",
+    "test": "codemod-cli test",
+    "test:coverage": "codemod-cli test --coverage",
+    "update-docs": "codemod-cli update-docs"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "dependencies": {
     "codemod-cli": "^2.1.0"
   },
@@ -22,12 +25,27 @@
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-prettier": "^3.1.1",
     "jest": "^24.9.0",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "release-it": "^12.2.1",
+    "release-it-lerna-changelog": "^1.0.3"
   },
   "engines": {
     "node": "8.* || 10.* || >= 12"
   },
-  "jest": {
-    "testEnvironment": "node"
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "release-it": {
+    "plugins": {
+      "release-it-lerna-changelog": {
+        "infile": "CHANGELOG.md"
+      }
+    },
+    "git": {
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true
+    }
   }
 }
