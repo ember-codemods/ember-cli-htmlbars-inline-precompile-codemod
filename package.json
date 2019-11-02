@@ -1,10 +1,24 @@
 {
   "name": "ember-cli-htmlbars-inline-precompile-codemod",
   "version": "0.1.0",
+  "description": "Automatically codemod from usage of `import hbs from 'htmlbars-inline-precompile'` to `import { hbs } from 'ember-cli-htmlbars'`",
   "keywords": [
     "codemod-cli"
   ],
-  "bin": "./bin/cli.js",
+  "homepage": "https://github.com/ember-codemods/ember-cli-htmlbars-inline-precompile-codemod#readme",
+  "bugs": {
+    "url": "https://github.com/ember-codemods/ember-cli-htmlbars-inline-precompile-codemod/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ember-codemods/ember-cli-htmlbars-inline-precompile-codemod.git"
+  },
+  "license": "MIT",
+  "author": "",
+  "main": "bin/cli.js",
+  "bin": {
+    "ember-cli-htmlbars-inline-precompile-codemod": "./bin/cli.js"
+  },
   "scripts": {
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
     "lint": "eslint --cache .",
